@@ -19,9 +19,16 @@ public class PlayerMovement : NetworkBehaviour
     public Button downButton;
 
 
-    private Vector2 targetPosition;
+    // private Vector2 targetPosition;
     public float jumpHeight = 5f;
+    // public float moveSpeed = 2f;
+
+    private Vector2 movement;
+
+
+    private Vector2 targetPosition;
     public float moveSpeed = 0.5f;
+    public float lerpSpeed = 5f;
 
 
     private void Awake()
@@ -74,22 +81,11 @@ public class PlayerMovement : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsOwner)
-            return;
+        if (!IsOwner) return;
 
-        // Smoothly move to the target position
-        rb.MovePosition(Vector2.Lerp(rb.position, targetPosition, Time.fixedDeltaTime * moveSpeed));
+        // Smoothly move to the target position using Lerp
+        rb.MovePosition(Vector2.Lerp(rb.position, targetPosition, Time.fixedDeltaTime * lerpSpeed));
     }
-
-    public void OnJumpButtonClick()
-    {
-        if (Mathf.Abs(rb.velocity.y) < 0.001f) // Check if the player is grounded
-        {
-            targetPosition = new Vector2(rb.position.x, rb.position.y + jumpHeight);
-        }
-    }
-
-
 
     public void OnLeftButtonClick()
     {
@@ -101,7 +97,6 @@ public class PlayerMovement : NetworkBehaviour
         targetPosition = new Vector2(rb.position.x + moveSpeed, rb.position.y);
     }
 
-
     public void OnUpButtonClick()
     {
         targetPosition = new Vector2(rb.position.x, rb.position.y + moveSpeed);
@@ -111,8 +106,6 @@ public class PlayerMovement : NetworkBehaviour
     {
         targetPosition = new Vector2(rb.position.x, rb.position.y - moveSpeed);
     }
-
-
 
 
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4773946924324061255}
   - component: {fileID: -8267571155578220307}
   - component: {fileID: 6663543524459295434}
+  - component: {fileID: -4470050472825968492}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -182,7 +183,8 @@ MonoBehaviour:
   upButton: {fileID: 3215838258380494375, guid: 75acf9854032346d28d7b1b1b3101d0a, type: 3}
   downButton: {fileID: 3215838258380494375, guid: d4ee15028cd2a4bc4aa6192922329144, type: 3}
   jumpHeight: 5
-  moveSpeed: 1
+  moveSpeed: 0.5
+  lerpSpeed: 3
 --- !u!114 &-8267571155578220307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +277,18 @@ MonoBehaviour:
   <SpawnableCollectionId>k__BackingField: 0
   <SceneId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 7807759643866311769
+--- !u!114 &-4470050472825968492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8002737538957126400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047f5920b55b04f15aa428c2b81bb371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  variableJoystick: {fileID: 0}
+  rb: {fileID: 0}
