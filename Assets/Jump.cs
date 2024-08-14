@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // using UnityEngine.Events;
+// using FishNet.Object;
+// using FishNet.Connection;
+// using FishNet.Object.Synchronizing;
 
 public class Jump : MonoBehaviour
 {
 
     public float jumpForce = 5f;
 
-     private Rigidbody2D rb;
+    private Rigidbody2D rb;
     public GameObject player;
 
     private Rigidbody2D playerRB;
@@ -24,7 +27,7 @@ public class Jump : MonoBehaviour
 
     //  public UnityEvent onClick;  // Event to trigger when the button is clicked
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         // This function is called when the square sprite is clicked
         Debug.Log("Hello World");
@@ -78,6 +81,7 @@ public class Jump : MonoBehaviour
     //     }
     // }
 
+    // [ServerRpc(RequireOwnership = false)]
     private void JumpPlayer()
     {
         // Apply a force to the Rigidbody2D to make it jump
