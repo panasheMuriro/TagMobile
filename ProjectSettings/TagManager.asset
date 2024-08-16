@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Jump
   - border
+  - tagged
   layers:
   - Default
   - TransparentFX

@@ -2576,7 +2576,7 @@ GameObject:
   - component: {fileID: 1510845866}
   - component: {fileID: 1510845865}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: JoyStickCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
