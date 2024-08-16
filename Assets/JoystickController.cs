@@ -23,18 +23,18 @@ public class JoystickController : NetworkBehaviour
         if (IsOwner)
         {
             ChangeColor();
+            rb.isKinematic = false;  // Owner can control physics
         }
         else
         {
-            // Apply the initial synced position when a client joins
-            rb.position = _syncedPosition.Value;
+            rb.isKinematic = true;  // Disable local physics for non-owner clients
         }
+
     }
 
 
     private void FixedUpdate()
     {
-        // if (!IsOwner) return;
         if (IsOwner)
         {
             Vector2 direction = new Vector2(variableJoystick.Horizontal, variableJoystick.Vertical);
@@ -44,11 +44,8 @@ public class JoystickController : NetworkBehaviour
     }
 
 
-
-
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other);
 
         if (other.gameObject.CompareTag("Player"))
         {
@@ -90,8 +87,4 @@ public class JoystickController : NetworkBehaviour
         } while (color == Color.black);
         return color;
     }
-
-
-
-
 }
